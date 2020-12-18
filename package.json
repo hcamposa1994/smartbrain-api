@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/hcamposa1994/smartbrain-api#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "express": "^4.17.1"
   }
 }

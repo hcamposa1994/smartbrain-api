@@ -1,4 +1,5 @@
 import express from "express";
+import bcrypt from "bcryptjs";
 
 const app = express();
 app.use(express.json());
@@ -9,7 +10,6 @@ const database = {
       id: "123",
       name: "John",
       email: "john@gmail.com",
-      password: "cookies",
       entries: 0,
       joined: new Date(),
     },
@@ -22,6 +22,13 @@ const database = {
       joined: new Date(),
     },
   ],
+  login: [
+    {
+      id: "987",
+      hash: "",
+      email: "john@gmail.com",
+    },
+  ],
 };
 
 app.get("/", (req, res) => {
@@ -29,6 +36,12 @@ app.get("/", (req, res) => {
 });
 
 app.post("/signin", (req, res) => {
+  bcrypt.compare("apples", "$2a$08$JY43UJ5YEcoIqHw0DrWUaeD6d1inx6oCs3WNjnBLvHWmYU86fKPfO", function (err, res) {
+    console.log("first guess", res)
+  });
+  bcrypt.compare("not_bacon", "$2a$08$JY43UJ5YEcoIqHw0DrWUaeD6d1inx6oCs3WNjnBLvHWmYU86fKPfO", function(err, res) {
+    console.log("second guess", res)
+});
   if (
     req.body.email === database.users[0].email &&
     req.body.password === database.users[0].password
