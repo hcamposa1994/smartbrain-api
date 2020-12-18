@@ -1,14 +1,17 @@
 import express from "express";
 import bcrypt from "bcryptjs";
+import cors from "cors";
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 const database = {
   users: [
     {
       id: "123",
       name: "John",
+      password: "cookies",
       email: "john@gmail.com",
       entries: 0,
       joined: new Date(),
@@ -36,12 +39,6 @@ app.get("/", (req, res) => {
 });
 
 app.post("/signin", (req, res) => {
-  bcrypt.compare("apples", "$2a$08$JY43UJ5YEcoIqHw0DrWUaeD6d1inx6oCs3WNjnBLvHWmYU86fKPfO", function (err, res) {
-    console.log("first guess", res)
-  });
-  bcrypt.compare("not_bacon", "$2a$08$JY43UJ5YEcoIqHw0DrWUaeD6d1inx6oCs3WNjnBLvHWmYU86fKPfO", function(err, res) {
-    console.log("second guess", res)
-});
   if (
     req.body.email === database.users[0].email &&
     req.body.password === database.users[0].password
