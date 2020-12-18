@@ -1,0 +1,24 @@
+{
+  "name": "smartbrain-api",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hcamposa1994/smartbrain-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hcamposa1994/smartbrain-api/issues"
+  },
+  "homepage": "https://github.com/hcamposa1994/smartbrain-api#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
