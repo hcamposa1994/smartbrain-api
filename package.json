@@ -20,6 +20,7 @@
   "homepage": "https://github.com/hcamposa1994/smartbrain-api#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "clarifai": "^2.9.1",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
