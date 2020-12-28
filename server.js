@@ -14,8 +14,8 @@ dotenv.config();
 const db = knex({
   client: "pg",
   connection: {
-    host: "127.0.0.1",
-    user: "herbert",
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
     password: process.env.DB_PASS,
     database: "smart-brain",
   },
@@ -34,6 +34,6 @@ app.get("/profile/:id", (req, res) => handleProfileGet(req, res, db));
 app.put("/image", (req, res) => handleImage(req, res, db));
 app.post("/imageurl", (req, res) => handleApiCall(req, res));
 
-app.listen(3000, () => {
-  console.log("app is running on port 3000");
+app.listen(process.env.DB_PORT, () => {
+  console.log(`app is running on port ${process.env.DB_PORT}`);
 });
